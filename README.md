@@ -3,8 +3,12 @@
 [![Latest Stable Version](https://poser.pugx.org/ltd-beget/sphinx-configuration-tokenizer/version)](https://packagist.org/packages/ltd-beget/sphinx-configuration-tokenizer) 
 [![Total Downloads](https://poser.pugx.org/ltd-beget/sphinx-configuration-tokenizer/downloads)](https://packagist.org/packages/ltd-beget/sphinx-configuration-tokenizer)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/badges/build.png?b=master)](https://scrutinizer-ci.com/g/LTD-Beget/sphinx-configuration-tokenizer/build-status/master)
 [![Documentation](https://img.shields.io/badge/code-documented-brightgreen.svg)](http://ltd-beget.github.io/sphinx-configuration-tokenizer/documentation/html/index.html)
+[![Documentation](https://img.shields.io/badge/code-coverage-brightgreen.svg)](http://ltd-beget.github.io/sphinx-configuration-tokenizer/coverage/index.html)
 [![License MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/LTD-Beget/sphinx-configuration-tokenizer/blob/master/LICENSE)
+
 
 Tokenize sphinx configuration and that's all, folks.
 
