@@ -43,6 +43,10 @@ wget https://phar.phpunit.de/phpunit.phar
 php phpunit.phar --coverage-html coverage
 ```
 
+```shell
+php phpunit.phar --coverage-clover coverage.xml
+```
+
 ## License
 released under the MIT License.
 See the [bundled LICENSE file](LICENSE) for details.
