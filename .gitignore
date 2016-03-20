@@ -1,0 +1,8 @@
+.idea
+documentation
+vendor
+coverage
+composer.lock
+composer.phar
+phpunit.phar
+index.php
