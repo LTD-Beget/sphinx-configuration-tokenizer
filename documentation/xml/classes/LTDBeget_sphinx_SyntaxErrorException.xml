@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException" abstract="false" final="false" start="18" end="88">
+  <file path="/home/voksiv/projects/sphinx-configuration-tokenizer/src/LTDBeget/sphinx" file="SyntaxErrorException.php" realpath="/home/voksiv/projects/sphinx-configuration-tokenizer/src/LTDBeget/sphinx/SyntaxErrorException.php" size="2071" time="2016-03-20T01:09:22+00:00" unixtime="1458436162" sha1="6429216c11063180e3f5b68faad9249fcb632fc6" relative="LTDBeget/sphinx/SyntaxErrorException.php"/>
+  <docblock>
+    <description compact="Class SyntaxErrorException"/>
+    <package value="LTDBeget\sphinx\configurator\exceptions"/>
+  </docblock>
+  <extends full="Exception" namespace="" name="Exception"/>
+  <constructor name="__construct" start="26" end="36" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="SyntaxErrorException constructor."/>
+      <param type="object" variable="$stream">
+        <type full="LTDBeget\stringstream\StringStream" namespace="LTDBeget\stringstream" name="StringStream"/>
+      </param>
+      <param type="int" variable="$code"/>
+      <param type="object" variable="$previous">
+        <type full="LTDBeget\sphinx\Exception|null" namespace="LTDBeget\sphinx" name="Exception|null"/>
+      </param>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="LTDBeget\stringstream\StringStream" namespace="LTDBeget\stringstream" name="StringStream"/>
+    </parameter>
+    <parameter name="code" byreference="false" type="integer" default="0">
+      <type full="LTDBeget\sphinx\int" namespace="LTDBeget\sphinx" name="int"/>
+    </parameter>
+    <parameter name="previous" byreference="false" type="{unknown}" default="" constant="null">
+      <type full="Exception" namespace="" name="Exception"/>
+    </parameter>
+  </constructor>
+  <method name="getErrorLine" start="41" end="44" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="int"/>
+    </docblock>
+  </method>
+  <method name="getUnexpectedChar" start="49" end="52" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  <method name="getParseErrorLineNumber" start="59" end="73" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="object" variable="$stream">
+        <type full="LTDBeget\stringstream\StringStream" namespace="LTDBeget\stringstream" name="StringStream"/>
+      </param>
+      <return type="int"/>
+    </docblock>
+    <parameter name="stream" byreference="false" type="object">
+      <type full="LTDBeget\stringstream\StringStream" namespace="LTDBeget\stringstream" name="StringStream"/>
+    </parameter>
+  </method>
+  <member name="error_line" visibility="private" static="false" line="78">
+    <docblock>
+      <description/>
+      <var type="int"/>
+    </docblock>
+  </member>
+  <member name="unexpected_char" visibility="private" static="false" line="82">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="messageTemplate" type="string" default="&quot;Parse error: syntax error, unexpected '%s' on line %d.&quot;" visibility="private" static="false" line="87">
+    <docblock>
+      <description/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <parent full="Exception" namespace="" name="Exception">
+    <member name="message" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The exception message"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+    <member name="code" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The exception code"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+    <member name="file" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The filename where the exception was created"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+    <member name="line" static="false" visibility="protected">
+    <default>null</default>
+    <docblock>
+      <description compact="The line where the exception was created"/>
+      <var type="int"/>
+    </docblock>
+  </member>
+    <constructor name="__construct" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="Construct the exception"/>
+      <return type="void"/>
+    </docblock>
+    <parameter name="message" optional="true" byreference="false" type="string"/>
+    <parameter name="code" optional="true" byreference="false" type="int"/>
+    <parameter name="previous" optional="true" byreference="false" type="object" class="Exception"/>
+  </constructor>
+    <method name="getMessage" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the Exception message"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="getPrevious" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Returns previous Exception"/>
+      <return type="Exception"/>
+    </docblock>
+  </method>
+    <method name="getCode" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the Exception code"/>
+      <return type="mixed"/>
+    </docblock>
+  </method>
+    <method name="getFile" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the file in which the exception occurred"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="getLine" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the line in which the exception occurred"/>
+      <return type="int"/>
+    </docblock>
+  </method>
+    <method name="getTrace" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the stack trace"/>
+      <return type="array"/>
+    </docblock>
+  </method>
+    <method name="getTraceAsString" abstract="false" static="false" visibility="public" final="true">
+    <docblock>
+      <description compact="Gets the stack trace as a string"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+    <method name="__toString" abstract="false" static="false" visibility="public" final="false">
+    <docblock>
+      <description compact="String representation of the exception"/>
+      <return type="string"/>
+    </docblock>
+  </method>
+  </parent>
+</class>

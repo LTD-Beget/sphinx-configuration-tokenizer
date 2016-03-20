@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - LTDBeget\sphinx\Tokenizer</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.html">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.html">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.html">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.html">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.html">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html#LTDBeget_sphinx">LTDBeget\sphinx</a>
+          </li>
+          <li class="separator">Tokenizer</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/LTDBeget/sphinx/Tokenizer.php.html#line19">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>LTDBeget\sphinx\</small>Tokenizer</h1>
+        <h4>Class SphinxConfigurationParser</h4>
+        <p/>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Tokenizer
+            {<br/><ul class="none"><li>// members</li><li>private <span title="LTDBeget\stringstream\StringStream">StringStream</span> <a href="#members">$stream</a>;
+                    </li><li>private array <a href="#members">$tokens</a> =
+                        ;
+                    </li><li>private array <a href="#members">$currentSection</a> =
+                        ;
+                    </li><li>private array <a href="#members">$currentOption</a> =
+                        ;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static array <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/tokenize.html">tokenize</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/__construct.html">__construct</a>()
+                    </li><li>private string <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/removeComments.html">removeComments</a>()
+                    </li><li>private Tokenizer <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/tokenizeInternal.html">tokenizeInternal</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSection.html">extractSection</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSectionType.html">extractSectionType</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSectionName.html">extractSectionName</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractInheritance.html">extractInheritance</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractInheritanceName.html">extractInheritanceName</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptions.html">extractOptions</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOption.html">extractOption</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptionName.html">extractOptionName</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptionValue.html">extractOptionValue</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/saveCurrentSection.html">saveCurrentSection</a>()
+                    </li><li>private void <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/saveCurrentOption.html">saveCurrentOption</a>()
+                    </li><li>private array <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/getEmptySectionData.html">getEmptySectionData</a>()
+                    </li><li>private array <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/getEmptyOptionData.html">getEmptyOptionData</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="currentOption"><strong>$currentOption</strong>
+                —
+                array<br/><span class="indent">temporary storage of tokens for one option</span></li>
+            <li id="currentSection"><strong>$currentSection</strong>
+                —
+                array<br/><span class="indent">temporary storage of tokens for one section</span></li>
+            <li id="stream"><strong>$stream</strong>
+                —
+                <a title="LTDBeget\stringstream\StringStream" href="../classes/LTDBeget_stringstream_StringStream.html">LTDBeget\stringstream\StringStream</a></li>
+            <li id="tokens"><strong>$tokens</strong>
+                —
+                array<br/><span class="indent">Result of tokenize input string</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>private</h4>
+          <ul>
+            <li id="__construct"><a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/__construct.html">__construct()</a>
+                — SphinxConfigurationParser constructor.</li>
+            <li id="extractInheritance">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractInheritance.html">extractInheritance()</a>
+            </li>
+            <li id="extractInheritanceName">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractInheritanceName.html">extractInheritanceName()</a>
+            </li>
+            <li id="extractOption">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOption.html">extractOption()</a>
+            </li>
+            <li id="extractOptionName">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptionName.html">extractOptionName()</a>
+            </li>
+            <li id="extractOptionValue">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptionValue.html">extractOptionValue()</a>
+            </li>
+            <li id="extractOptions">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractOptions.html">extractOptions()</a>
+            </li>
+            <li id="extractSection">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSection.html">extractSection()</a>
+            </li>
+            <li id="extractSectionName">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSectionName.html">extractSectionName()</a>
+            </li>
+            <li id="extractSectionType">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/extractSectionType.html">extractSectionType()</a>
+            </li>
+            <li id="getEmptyOptionData">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/getEmptyOptionData.html">getEmptyOptionData()</a>
+            </li>
+            <li id="getEmptySectionData">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/getEmptySectionData.html">getEmptySectionData()</a>
+            </li>
+            <li id="removeComments">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/removeComments.html">removeComments()</a>
+            </li>
+            <li id="saveCurrentOption">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/saveCurrentOption.html">saveCurrentOption()</a>
+            </li>
+            <li id="saveCurrentSection">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/saveCurrentSection.html">saveCurrentSection()</a>
+            </li>
+            <li id="tokenizeInternal">
+              <a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/tokenizeInternal.html">tokenizeInternal()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="tokenize"><a title="LTDBeget\sphinx\Tokenizer" href="../classes/LTDBeget_sphinx_Tokenizer/tokenize.html">tokenize()</a>
+                — parse and tokenize input string</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.2-dev - Copyright (C) 2010 - 2016 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

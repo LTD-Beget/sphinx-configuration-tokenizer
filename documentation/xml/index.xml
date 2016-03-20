@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="/home/voksiv/projects/sphinx-configuration-tokenizer/src">
+  <namespace name="LTDBeget\sphinx">
+    <class name="SyntaxErrorException" src="LTDBeget/sphinx/SyntaxErrorException.php" description="Class SyntaxErrorException" xml="classes/LTDBeget_sphinx_SyntaxErrorException.xml"/>
+    <class name="Tokenizer" src="LTDBeget/sphinx/Tokenizer.php" description="Class SphinxConfigurationParser" xml="classes/LTDBeget_sphinx_Tokenizer.xml"/>
+  </namespace>
+  <namespace name="">
+    <class name="Exception" xml="classes/Exception.xml"/>
+  </namespace>
+</index>

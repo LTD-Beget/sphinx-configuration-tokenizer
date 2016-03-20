@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<source xmlns="http://xml.phpdox.net/src">
+  <dir name="/home/voksiv/projects/sphinx-configuration-tokenizer/src">
+    <dir name="LTDBeget">
+      <dir name="sphinx">
+        <file name="SyntaxErrorException.php" size="2071" time="2016-03-20T01:09:22+00:00" unixtime="1458436162" sha1="6429216c11063180e3f5b68faad9249fcb632fc6" xml="tokens/LTDBeget/sphinx/SyntaxErrorException.php.xml"/>
+        <file name="Tokenizer.php" size="9238" time="2016-03-20T01:08:45+00:00" unixtime="1458436125" sha1="f4cb1005423d37a7107b9277881118d3e5d93276" xml="tokens/LTDBeget/sphinx/Tokenizer.php.xml"/>
+      </dir>
+    </dir>
+  </dir>
+</source>

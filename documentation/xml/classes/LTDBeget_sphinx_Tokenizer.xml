@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LTDBeget\sphinx\Tokenizer" namespace="LTDBeget\sphinx" name="Tokenizer" abstract="false" final="true" start="19" end="376">
+  <file path="/home/voksiv/projects/sphinx-configuration-tokenizer/src/LTDBeget/sphinx" file="Tokenizer.php" realpath="/home/voksiv/projects/sphinx-configuration-tokenizer/src/LTDBeget/sphinx/Tokenizer.php" size="9238" time="2016-03-20T01:08:45+00:00" unixtime="1458436125" sha1="f4cb1005423d37a7107b9277881118d3e5d93276" relative="LTDBeget/sphinx/Tokenizer.php"/>
+  <docblock>
+    <description compact="Class SphinxConfigurationParser"/>
+    <package value="LTDBeget\sphinx\configurator\parser"/>
+  </docblock>
+  <method name="tokenize" start="28" end="31" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="parse and tokenize input string"/>
+      <param type="string" variable="$plainData"/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+      <throws type="object">
+        <type full="BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+      <return type="array"/>
+    </docblock>
+    <parameter name="plainData" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\string" namespace="LTDBeget\sphinx" name="string"/>
+    </parameter>
+  </method>
+  <constructor name="__construct" start="39" end="43" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description compact="SphinxConfigurationParser constructor."/>
+      <internal/>
+      <param type="string" variable="$string"/>
+      <throws type="object">
+        <type full="BadMethodCallException" namespace="" name="BadMethodCallException"/>
+      </throws>
+    </docblock>
+    <parameter name="string" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\string" namespace="LTDBeget\sphinx" name="string"/>
+    </parameter>
+  </constructor>
+  <method name="removeComments" start="50" end="53" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <param type="string" variable="$string"/>
+      <return type="string"/>
+    </docblock>
+    <parameter name="string" byreference="false" type="object">
+      <type full="LTDBeget\sphinx\string" namespace="LTDBeget\sphinx" name="string"/>
+    </parameter>
+  </method>
+  <method name="tokenizeInternal" start="60" end="69" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="object">
+        <type full="LTDBeget\sphinx\Tokenizer" namespace="LTDBeget\sphinx" name="Tokenizer"/>
+      </return>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractSection" start="75" end="98" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractSectionType" start="104" end="118" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractSectionName" start="124" end="144" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractInheritance" start="150" end="166" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractInheritanceName" start="172" end="187" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractOptions" start="193" end="217" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractOption" start="223" end="228" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractOptionName" start="234" end="250" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="extractOptionValue" start="256" end="300" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <throws type="object">
+        <type full="LTDBeget\sphinx\SyntaxErrorException" namespace="LTDBeget\sphinx" name="SyntaxErrorException"/>
+      </throws>
+    </docblock>
+  </method>
+  <method name="saveCurrentSection" start="305" end="310" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="saveCurrentOption" start="315" end="319" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+    </docblock>
+  </method>
+  <method name="getEmptySectionData" start="325" end="333" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <method name="getEmptyOptionData" start="339" end="345" abstract="false" final="false" static="false" visibility="private">
+    <docblock>
+      <description/>
+      <internal/>
+      <return type="array"/>
+    </docblock>
+  </method>
+  <member name="stream" visibility="private" static="false" line="350">
+    <docblock>
+      <description/>
+      <var type="object">
+        <type full="LTDBeget\stringstream\StringStream" namespace="LTDBeget\stringstream" name="StringStream"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="tokens" type="array" default="" visibility="private" static="false" line="356">
+    <docblock>
+      <description compact="Result of tokenize input string"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="currentSection" type="array" default="" visibility="private" static="false" line="362">
+    <docblock>
+      <description compact="temporary storage of tokens for one section"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+  <member name="currentOption" type="array" default="" visibility="private" static="false" line="372">
+    <docblock>
+      <description compact="temporary storage of tokens for one option"/>
+      <var type="array"/>
+    </docblock>
+  </member>
+</class>
