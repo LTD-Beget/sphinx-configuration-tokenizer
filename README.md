@@ -36,15 +36,15 @@ $ ./vendor/bin/phpdox
 ### Run tests
 
 ```shell
-wget https://phar.phpunit.de/phpunit.phar
+$ wget https://phar.phpunit.de/phpunit.phar
 ```
 
 ```shell
-php phpunit.phar --coverage-html coverage
+$ php phpunit.phar --coverage-html coverage
 ```
 
 ```shell
-php phpunit.phar --coverage-clover coverage.xml
+$ php phpunit.phar --coverage-clover coverage.xml
 ```
 
 ## License
