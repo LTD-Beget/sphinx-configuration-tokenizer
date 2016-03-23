@@ -19,8 +19,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testNameConf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/name.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/name.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -30,8 +31,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testTypeConf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/type.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/type.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -41,8 +43,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testInheritanceConf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/inheritance.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/inheritance.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -52,8 +55,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testOptionNameConf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/option_name.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/option_name.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -64,8 +68,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testWrongMultiLineConf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/wrong_multiline.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/wrong_multiline.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -75,8 +80,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testWrongMultiLine2Conf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/wrong_multi_line_2.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/wrong_multi_line_2.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 
@@ -86,8 +92,9 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
      */
     public function testWrongMultiLine3Conf()
     {
-        $config_path = realpath(__DIR__."/../sphinx/invalid/wrong_multi_line_3.conf");
+        $config_path = (__DIR__. '/../sphinx/invalid/wrong_multi_line_3.conf');
         $plain_config = file_get_contents($config_path);
+        /** @noinspection ExceptionsAnnotatingAndHandlingInspection */
         Tokenizer::tokenize($plain_config);
     }
 }

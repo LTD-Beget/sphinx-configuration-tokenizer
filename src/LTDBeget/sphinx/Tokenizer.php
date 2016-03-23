@@ -274,7 +274,7 @@ final class Tokenizer
             throw new SyntaxErrorException($this->stream);
         }
 
-        if ($char->isPrintableChar()) {
+        if ($char->isPrintableChar() || $char->isHorizontalSpace()) {
 
             if ($char->is(AsciiChar::BACKSLASH())) { // if possibility of multi-line
                 $char = $this->stream->currentAscii();
