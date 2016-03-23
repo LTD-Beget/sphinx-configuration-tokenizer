@@ -76,16 +76,16 @@ final class Tokenizer
     {
         $this->extractSectionType();
 
-        switch ($this->currentSection["type"]) {
-            case "source":
-            case "index":
+        switch ($this->currentSection['type']) {
+            case 'source':
+            case 'index':
                 $this->extractSectionName();
 
                 $this->extractInheritance();
                 break;
-            case "indexer":
-            case "searchd":
-            case "common":
+            case 'indexer':
+            case 'searchd':
+            case 'common':
                 break;
             default:
                 throw new SyntaxErrorException($this->stream);
@@ -108,7 +108,7 @@ final class Tokenizer
         $char = $this->stream->currentAscii();
         $this->stream->next();
         if ($char->isLetter()) {
-            $this->currentSection["type"] .= (string) $char;
+            $this->currentSection['type'] .= (string) $char;
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
@@ -130,7 +130,7 @@ final class Tokenizer
         $this->stream->next();
 
         if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentSection["name"] .= (string) $char;
+            $this->currentSection['name'] .= (string) $char;
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
@@ -177,7 +177,7 @@ final class Tokenizer
         $this->stream->next();
 
         if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentSection["inheritance"] .= (string) $char;
+            $this->currentSection['inheritance'] .= (string) $char;
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
@@ -240,7 +240,7 @@ final class Tokenizer
         $this->stream->next();
 
         if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentOption["name"] .= (string) $char;
+            $this->currentOption['name'] .= (string) $char;
             goto start;
         } elseif ($char->isHorizontalSpace()) {
             return;
@@ -280,16 +280,16 @@ final class Tokenizer
                 $char = $this->stream->currentAscii();
 
                 if ($char->isVerticalSpace()) { // multi-line opened
-                    $this->currentOption["value"] .= (string) AsciiChar::SPACE();
-                    $this->stream->next(); // ignore end line
-                    $this->stream->ignoreHorizontalSpace();
+                    $this->currentOption['value'] .= (string) AsciiChar::BACKSLASH();
+                    $this->currentOption['value'] .= (string) $char;
+                    $this->stream->next();
                     goto start;
                 } else { // backslash as mean symbol
-                    $this->currentOption["value"] .= (string) AsciiChar::BACKSLASH();
+                    $this->currentOption['value'] .= (string) AsciiChar::BACKSLASH();
                     goto start;
                 }
             } else {
-                $this->currentOption["value"] .= (string) $char;
+                $this->currentOption['value'] .= (string) $char;
                 goto start;
             }
         } elseif ($char->isVerticalSpace()) {
@@ -314,7 +314,7 @@ final class Tokenizer
      */
     private function saveCurrentOption()
     {
-        $this->currentSection["options"][] = $this->currentOption;
+        $this->currentSection['options'][] = $this->currentOption;
         $this->currentOption               = $this->getEmptyOptionData();
     }
 
@@ -325,10 +325,10 @@ final class Tokenizer
     private function getEmptySectionData() : array
     {
         return [
-            "type"        => "",
-            "name"        => "",
-            "inheritance" => "",
-            "options"     => []
+            'type'        => '',
+            'name'        => '',
+            'inheritance' => '',
+            'options'     => []
         ];
     }
 
@@ -339,8 +339,8 @@ final class Tokenizer
     private function getEmptyOptionData() : array
     {
         return [
-            "name"  => "",
-            "value" => ""
+            'name'  => '',
+            'value' => ''
         ];
     }
 
@@ -360,17 +360,17 @@ final class Tokenizer
      * @var array
      */
     private $currentSection = [
-        "type"        => "",
-        "name"        => "",
-        "inheritance" => "",
-        "options"     => []
+        'type'        => '',
+        'name'        => '',
+        'inheritance' => '',
+        'options'     => []
     ];
     /**
      * temporary storage of tokens for one option
      * @var array
      */
     private $currentOption = [
-        "name"  => "",
-        "value" => ""
+        'name'  => '',
+        'value' => ''
     ];
 }
