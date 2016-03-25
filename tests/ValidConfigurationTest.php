@@ -30,4 +30,13 @@ class ValidConfigurationTest extends PHPUnit_Framework_TestCase
 
         static::assertEquals('ddddfff0aba2a84ac0bdccd88df7e41c', $result);
     }
+
+    public function testUnicode()
+    {
+        $config_path = __DIR__. '/../sphinx/unicode.conf';
+        $plain_config = file_get_contents($config_path);
+        $result = md5(serialize(Tokenizer::tokenize($plain_config)));
+
+        static::assertEquals('2a589652bd1c299d62420f089b1207f9', $result);
+    }
 }

@@ -71,14 +71,19 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractSection()
     {
+        $this->stream->ignoreWhitespace();
+
         $this->extractSectionType();
 
         switch ($this->currentSection['type']) {
             case 'source':
             case 'index':
+                $this->stream->ignoreHorizontalSpace();
                 $this->extractSectionName();
 
                 $this->extractInheritance();
@@ -91,24 +96,26 @@ final class Tokenizer
                 throw new SyntaxErrorException($this->stream);
         }
 
+        $this->stream->ignoreWhitespace();
+        
         $this->extractOptions();
-
-
+        
         $this->stream->ignoreWhitespace();
     }
 
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractSectionType()
     {
-        $this->stream->ignoreWhitespace();
         start:
         $char = $this->stream->currentAscii();
-        $this->stream->next();
         if ($char->isLetter()) {
-            $this->currentSection['type'] .= (string) $char;
+            $this->currentSection['type'] .= $this->stream->current();
+            $this->stream->next();
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
@@ -120,23 +127,19 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractSectionName()
     {
-        $this->stream->ignoreHorizontalSpace();
-
         start:
         $char = $this->stream->currentAscii();
-        $this->stream->next();
-
-        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentSection['name'] .= (string) $char;
+        
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE)) {
+            $this->currentSection['name'] .= $this->stream->current();
+            $this->stream->next();
             goto start;
-        } elseif ($char->isWhiteSpace()) {
-            return;
-        } elseif ($char->is(AsciiChar::COLON())) {
-            $this->stream->previous();
-
+        } elseif ($char->isWhiteSpace() || $char->is(AsciiChar::COLON)) {
             return;
         } else {
             throw new SyntaxErrorException($this->stream);
@@ -150,15 +153,16 @@ final class Tokenizer
     private function extractInheritance()
     {
         $this->stream->ignoreHorizontalSpace();
-
+        
         $char = $this->stream->currentAscii();
-
+        
         if ($char->isVerticalSpace() || $char->is(AsciiChar::OPENING_BRACE())) {
             return;
         }
 
         if ($char->is(AsciiChar::COLON())) {
             $this->stream->next();
+            $this->stream->ignoreHorizontalSpace();
             $this->extractInheritanceName();
         } else {
             throw new SyntaxErrorException($this->stream);
@@ -171,13 +175,12 @@ final class Tokenizer
      */
     private function extractInheritanceName()
     {
-        $this->stream->ignoreHorizontalSpace();
         start:
         $char = $this->stream->currentAscii();
-        $this->stream->next();
-
-        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentSection['inheritance'] .= (string) $char;
+        
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE)) {
+            $this->currentSection['inheritance'] .= $this->stream->current();
+            $this->stream->next();
             goto start;
         } elseif ($char->isWhiteSpace()) {
             return;
@@ -192,9 +195,7 @@ final class Tokenizer
      */
     private function extractOptions()
     {
-        $this->stream->ignoreWhitespace();
-
-        if ($this->stream->currentAscii()->is(AsciiChar::OPENING_BRACE())) {
+        if ($this->stream->currentAscii()->is(AsciiChar::OPENING_BRACE)) {
             $this->stream->next();
 
             start:
@@ -204,7 +205,7 @@ final class Tokenizer
                 throw new SyntaxErrorException($this->stream);
             }
 
-            if ($this->stream->currentAscii()->is(AsciiChar::CLOSING_BRACE())) {
+            if ($this->stream->currentAscii()->is(AsciiChar::CLOSING_BRACE)) {
                 $this->stream->next();
 
                 return;
@@ -223,6 +224,15 @@ final class Tokenizer
     private function extractOption()
     {
         $this->extractOptionName();
+        $this->stream->ignoreHorizontalSpace();
+        
+        if (!$this->stream->currentAscii()->is(AsciiChar::EQUALS)) {
+            throw new SyntaxErrorException($this->stream);
+        }
+        
+        $this->stream->next();
+        $this->stream->ignoreHorizontalSpace();
+        
         $this->extractOptionValue();
         $this->saveCurrentOption();
     }
@@ -233,14 +243,12 @@ final class Tokenizer
      */
     private function extractOptionName()
     {
-        $this->stream->ignoreWhitespace();
-
         start:
         $char = $this->stream->currentAscii();
-        $this->stream->next();
 
-        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE())) {
-            $this->currentOption['name'] .= (string) $char;
+        if ($char->isLetter() || $char->isDigit() || $char->is(AsciiChar::UNDERSCORE)) {
+            $this->currentOption['name'] .= $this->stream->current();
+            $this->stream->next();
             goto start;
         } elseif ($char->isHorizontalSpace()) {
             return;
@@ -255,41 +263,30 @@ final class Tokenizer
      */
     private function extractOptionValue()
     {
-        $this->stream->ignoreHorizontalSpace();
-
-        $char = $this->stream->currentAscii();
-        $this->stream->next();
-
-        if (!$char->is(AsciiChar::EQUALS())) {
-            throw new SyntaxErrorException($this->stream);
-        }
-
-        $this->stream->ignoreHorizontalSpace();
-
         start:
         $char = $this->stream->currentAscii();
-        $this->stream->next();
-
+        
         if($this->stream->isEnd()) {
             throw new SyntaxErrorException($this->stream);
         }
 
         if ($char->isPrintableChar() || $char->isHorizontalSpace()) {
 
-            if ($char->is(AsciiChar::BACKSLASH())) { // if possibility of multi-line
-                $char = $this->stream->currentAscii();
+            if ($char->is(AsciiChar::BACKSLASH)) { // if possibility of multi-line
+                $this->stream->next();
 
-                if ($char->isVerticalSpace()) { // multi-line opened
-                    $this->currentOption['value'] .= (string) AsciiChar::BACKSLASH();
-                    $this->currentOption['value'] .= (string) $char;
+                if ($this->stream->currentAscii()->isVerticalSpace()) { // multi-line opened
+                    $this->currentOption['value'] .= chr(AsciiChar::BACKSLASH);
+                    $this->currentOption['value'] .= $this->stream->current();
                     $this->stream->next();
                     goto start;
                 } else { // backslash as mean symbol
-                    $this->currentOption['value'] .= (string) AsciiChar::BACKSLASH();
+                    $this->currentOption['value'] .= chr(AsciiChar::BACKSLASH);
                     goto start;
                 }
             } else {
-                $this->currentOption['value'] .= (string) $char;
+                $this->currentOption['value'] .= $this->stream->current();
+                $this->stream->next();
                 goto start;
             }
         } elseif ($char->isVerticalSpace()) {

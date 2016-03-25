@@ -27,7 +27,7 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LTDBeget\sphinx\SyntaxErrorException
-     * @expectedExceptionMessage Parse error: syntax error, unexpected 's' on line 1.
+     * @expectedExceptionMessage Parse error: syntax error, unexpected '_' on line 1.
      */
     public function testTypeConf()
     {
@@ -51,7 +51,7 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LTDBeget\sphinx\SyntaxErrorException
-     * @expectedExceptionMessage Parse error: syntax error, unexpected 'o' on line 3.
+     * @expectedExceptionMessage Parse error: syntax error, unexpected 'w' on line 3.
      */
     public function testOptionNameConf()
     {
@@ -76,7 +76,7 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LTDBeget\sphinx\SyntaxErrorException
-     * @expectedExceptionMessage Parse error: syntax error, unexpected 'n' on line 7.
+     * @expectedExceptionMessage Parse error: syntax error, unexpected '.' on line 7.
      */
     public function testWrongMultiLine2Conf()
     {
@@ -88,7 +88,7 @@ class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \LTDBeget\sphinx\SyntaxErrorException
-     * @expectedExceptionMessage Parse error: syntax error, unexpected 'n' on line 14.
+     * @expectedExceptionMessage Parse error: syntax error, unexpected '.' on line 14.
      */
     public function testWrongMultiLine3Conf()
     {

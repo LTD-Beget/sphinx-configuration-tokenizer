@@ -29,7 +29,7 @@ class SyntaxErrorException extends \Exception
             $stream->end();
         }
 
-        $this->unexpected_char = (string) $stream->current();
+        $this->unexpected_char = $stream->current();
         $this->error_line      = $this->getParseErrorLineNumber($stream);
         $message               = sprintf($this->messageTemplate, $this->unexpected_char, $this->error_line);
         parent::__construct($message, $code, $previous);
@@ -59,7 +59,7 @@ class SyntaxErrorException extends \Exception
     private function getParseErrorLineNumber(StringStream $stream) : int
     {
         $parse_error_char_position = $stream->position();
-        $plain_data                = $stream->getString();
+        $plain_data                = $this->getFullString($stream);
         $exploded_by_lines         = explode("\n", $plain_data);
         foreach ($exploded_by_lines as $key => $line) {
             $line_length = strlen($line) + 1;
@@ -70,6 +70,22 @@ class SyntaxErrorException extends \Exception
         }
 
         return 1;
+    }
+
+    /**
+     * @param StringStream $stream
+     * @return string
+     */
+    private function getFullString(StringStream $stream) : string 
+    {
+        $stream->start();
+        $string = '';
+        do {
+            $string .= $stream->current();
+            $stream->next();
+        } while (! $stream->isEnd());
+        
+        return $string;
     }
 
     /**
