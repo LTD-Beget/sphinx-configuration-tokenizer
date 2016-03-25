@@ -24,6 +24,9 @@ final class Tokenizer
      * @throws SyntaxErrorException
      * @throws BadMethodCallException
      * @return array
+     * @throws \Hoa\Ustring\Exception
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     public static function tokenize(string $plainData) : array
     {
@@ -35,6 +38,7 @@ final class Tokenizer
      * @internal
      * @param string $string
      * @throws BadMethodCallException
+     * @throws \Hoa\Ustring\Exception
      */
     private function __construct(string $string)
     {
@@ -55,6 +59,8 @@ final class Tokenizer
     /**
      * @internal
      * @return Tokenizer
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
      * @throws SyntaxErrorException
      */
     private function tokenizeInternal() : Tokenizer
@@ -149,6 +155,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractInheritance()
     {
@@ -172,6 +180,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractInheritanceName()
     {
@@ -192,6 +202,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     private function extractOptions()
     {
@@ -220,6 +232,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractOption()
     {
@@ -240,6 +254,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
      */
     private function extractOptionName()
     {
@@ -260,6 +276,8 @@ final class Tokenizer
     /**
      * @internal
      * @throws SyntaxErrorException
+     * @throws \LogicException
+     * @throws \InvalidArgumentException
      */
     private function extractOptionValue()
     {
