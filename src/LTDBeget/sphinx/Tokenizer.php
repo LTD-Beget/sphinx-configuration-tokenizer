@@ -30,7 +30,13 @@ final class Tokenizer
      */
     public static function tokenize(string $plainData) : array
     {
-        return (new self($plainData))->tokenizeInternal()->tokens;
+        $tokens = [];
+
+        if(! empty($plainData)) {
+            $tokens = (new self($plainData))->tokenizeInternal()->tokens;
+        }
+
+        return $tokens;
     }
 
     /**
