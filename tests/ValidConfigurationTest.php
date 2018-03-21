@@ -5,12 +5,15 @@
  * @time: 3:13
  */
 
+namespace LTDBeget\sphinx;
+
 use LTDBeget\sphinx\Tokenizer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ValidConfigurationTest
  */
-class ValidConfigurationTest extends PHPUnit_Framework_TestCase
+class ValidConfigurationTest extends TestCase
 {
     public function testValid()
     {
