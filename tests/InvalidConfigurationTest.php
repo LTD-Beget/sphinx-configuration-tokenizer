@@ -5,13 +5,15 @@
  * @time: 3:42
  */
 
+namespace LTDBeget\sphinx;
 
 use LTDBeget\sphinx\Tokenizer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class InvalidConfigurationTest
  */
-class InvalidConfigurationTest extends PHPUnit_Framework_TestCase
+class InvalidConfigurationTest extends TestCase
 {
     /**
      * @expectedException        \LTDBeget\sphinx\SyntaxErrorException

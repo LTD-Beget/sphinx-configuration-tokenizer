@@ -20,12 +20,17 @@
   },
   "require-dev": {
     "theseer/phpdox": "0.8.*",
-    "phpunit/phpunit": "5.2.*",
+    "phpunit/phpunit": "^5.5",
     "tideways/profiler": "2.0.*"
   },
   "autoload": {
-    "psr-0": {
-      "LTDBeget\\sphinx": "src"
+    "psr-4": {
+      "LTDBeget\\sphinx\\": "src/LTDBeget/sphinx"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LTDBeget\\sphinx\\": "src/LTDBeget/sphinx"
     }
   }
 }
