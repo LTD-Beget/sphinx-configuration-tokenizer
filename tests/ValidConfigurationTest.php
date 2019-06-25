@@ -6,37 +6,40 @@
  */
 
 use LTDBeget\sphinx\Tokenizer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ValidConfigurationTest
  */
-class ValidConfigurationTest extends PHPUnit_Framework_TestCase
+class ValidConfigurationTest extends TestCase
 {
     public function testValid()
     {
-        $config_path = __DIR__. '/../sphinx/valid.conf';
+        $config = $this->getConfigContents('valid');
+        $result = md5(serialize(Tokenizer::tokenize($config)));
 
-        $plain_config = file_get_contents($config_path);
-        $result = md5(serialize(Tokenizer::tokenize($plain_config)));
-
-        static::assertEquals('c357008aa8dec1d7bcd4f42f62f3537b', $result);
+        $this->assertEquals('c357008aa8dec1d7bcd4f42f62f3537b', $result);
     }
 
     public function testExample()
     {
-        $config_path = __DIR__. '/../sphinx/sphinx.conf';
-        $plain_config = file_get_contents($config_path);
-        $result = md5(serialize(Tokenizer::tokenize($plain_config)));
+        $config = $this->getConfigContents('sphinx');
+        $result = md5(serialize(Tokenizer::tokenize($config)));
 
-        static::assertEquals('ddddfff0aba2a84ac0bdccd88df7e41c', $result);
+        $this->assertEquals('ddddfff0aba2a84ac0bdccd88df7e41c', $result);
     }
 
     public function testUnicode()
     {
-        $config_path = __DIR__. '/../sphinx/unicode.conf';
-        $plain_config = file_get_contents($config_path);
-        $result = md5(serialize(Tokenizer::tokenize($plain_config)));
+        $config = $this->getConfigContents('unicode');
+        $result = md5(serialize(Tokenizer::tokenize($config)));
 
-        static::assertEquals('2a589652bd1c299d62420f089b1207f9', $result);
+        $this->assertEquals('2a589652bd1c299d62420f089b1207f9', $result);
+    }
+
+    private function getConfigContents(string $name): string
+    {
+        $path = sprintf('%s/../sphinx/%s.conf', __DIR__, $name);
+        return file_get_contents($path);
     }
 }
