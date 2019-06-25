@@ -152,6 +152,10 @@ final class Tokenizer
             $this->stream->next();
             goto start;
         } elseif ($char->isWhiteSpace() || $char->is(AsciiChar::COLON)) {
+            if (empty($this->currentSection['name'])) {
+                throw new SyntaxErrorException($this->stream);
+            }
+
             return;
         } else {
             throw new SyntaxErrorException($this->stream);
@@ -199,6 +203,10 @@ final class Tokenizer
             $this->stream->next();
             goto start;
         } elseif ($char->isWhiteSpace()) {
+            if (empty($this->currentSection['inheritance'])) {
+                throw new SyntaxErrorException($this->stream);
+            }
+
             return;
         } else {
             throw new SyntaxErrorException($this->stream);
