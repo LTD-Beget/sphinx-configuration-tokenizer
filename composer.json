@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "ltd-beget/stringstream" : "~1.0.2"
+    "ltd-beget/stringstream" : "~1.1.0"
   },
   "require-dev": {
     "theseer/phpdox": "0.8.*",
