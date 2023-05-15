@@ -16,12 +16,11 @@
   ],
   "require": {
     "php": ">=7.0",
-    "ltd-beget/stringstream" : "~1.1.0"
+    "ltd-beget/stringstream" : "^1.1 || ^2.0"
   },
   "require-dev": {
-    "theseer/phpdox": "0.8.*",
-    "phpunit/phpunit": "^5.7",
-    "tideways/profiler": "2.0.*"
+    "phpunit/phpunit": "^8.5.33",
+    "tideways/profiler": "^2.0.1"
   },
   "autoload": {
     "psr-0": {
