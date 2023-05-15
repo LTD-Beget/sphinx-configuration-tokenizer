@@ -58,7 +58,7 @@ class InvalidConfigurationTest extends TestCase
     public function testWrongMultiLineConf()
     {
         $this->expectException(SyntaxErrorException::class);
-        $this->expectExceptionMessage("Parse error: syntax error, unexpected '\n\n' on line 14.");
+        $this->expectExceptionMessage("Parse error: syntax error, unexpected '' on line 15.");
 
         $config = $this->getConfigContents('wrong_multiline');
         /** @noinspection PhpUnhandledExceptionInspection */
